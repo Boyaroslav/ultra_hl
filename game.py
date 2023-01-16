@@ -732,13 +732,6 @@ class Game(Window):
         self.texture = mainplTx
         self.guys = [Me(SPAWN[0] * self.bsize, SPAWN[1] * self.bsize, 90, self.texture)]
         self.max_score = 0
-        for i in range(1, len(self.guys)):
-            if self.guys[i].name == "primat":
-                self.max_score += 1000
-            elif self.guys[i].name == "gunguy":
-                self.max_score += 800
-            elif self.guys[i].name == "shootgunman":
-                self.max_score += 1200
         self.all_guys = len(self.guys) - 1
         self.things = []  # surface, mask, weight, pos
         self.RUN_DEM = True
@@ -797,6 +790,13 @@ class Game(Window):
                     self.guys.append(ShootgunMan(i[1], i[2], 90, shootgun_manTx))
         except:
             pass
+        for i in range(1, len(self.guys)):
+            if self.guys[i].name == "primat":
+                self.max_score += 1000
+            elif self.guys[i].name == "gunguy":
+                self.max_score += 800
+            elif self.guys[i].name == "shootgunman":
+                self.max_score += 1200
 
         try:
             for i in f.THINGS:

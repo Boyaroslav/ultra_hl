@@ -76,7 +76,7 @@ class End_screen(Window):
             if score == self.pl_score:
                 sct = self.font.render(f"{score}  //  {self.max_score}", True, color)
             else:
-                sct = self.font.render(str(score), True, color)
+                sct = self.font.render(f"{score}  //  {self.max_score}", True, color)
             surf.blit(sct, (self.size[0] // 6, self.size[1] // 12 + 50))
             if score == self.pl_score:
                 guys_t = self.font.render(f"{guys_killed}  //  {self.bads_killed}", True, color)
