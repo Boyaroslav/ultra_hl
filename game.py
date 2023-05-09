@@ -168,6 +168,7 @@ class Me(Guy):
         self.texture_hands = texture
         self.texture_pistolet = mainpl_pistoletTx
         self.texture_shootgun = mainpl_shootgunTx
+        self.texture_rifle = mainpl_rifleTx
 
         self.gun = None
         self.me = 'me'
@@ -247,6 +248,16 @@ class Me(Guy):
                         shootgun_fire.play()
                     elif self.bullets <= 0:
                         shootgun_empty.play()
+                elif self.gun == "rifle":
+                    if self.force % 10 == 0 and self.bullets > 0:
+
+
+                        root.good_shoots.append(Bullet(self.x,
+                                                    self.y, self.rot
+                                                    ))
+                        self.force -= 1
+                        self.bullets -= 1
+                        pistolet_fire.play()
 
             if root.m_pressed == 3:
                 if self.gun != None:
@@ -259,8 +270,8 @@ class Me(Guy):
                     for gun in range(0, len(root.guns)):
                         if self.gun:
                             break
-                        if (root.guns[gun][1] + 10) - self.x < 30:
-                            if (root.guns[gun][2] + 5) - self.y < 30:
+                        if abs((root.guns[gun][1] + 10) - self.x) < 30:
+                            if abs((root.guns[gun][2] + 5) - self.y) < 30:
                                 self.gun = root.guns[gun][0]
                                 self.bullets = root.guns[gun][-1]
                                 del root.guns[gun]
@@ -309,8 +320,10 @@ class Me(Guy):
             self.texture = self.texture_pistolet
         elif self.gun == "shootgun":
             self.texture = self.texture_shootgun
+        elif self.gun == "rifle":
+            self.texture = self.texture_rifle
 
-        if self.gun == None:
+        elif self.gun == None:
             self.texture = self.texture_hands
 
         b = self.texture.get_rect()

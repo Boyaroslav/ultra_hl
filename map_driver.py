@@ -20,10 +20,13 @@ greenTx = pygame.image.load("textures/blocks/green.png")
 laminateTx = pygame.image.load("textures/blocks/laminate.png")
 
 gunguy = pygame.image.load("textures/guys/normal_bad.png")
+
 mainplTx = pygame.image.load("textures/guys/mainpl.png")
 mainpl_pistoletTx = pygame.image.load("textures/guys/mainpl_pistolet.png")
 main_deadTx = pygame.image.load("textures/things/dead_mainpl1.png")
 mainpl_shootgunTx = pygame.image.load("textures/guys/mainpl_shootgun.png")
+mainpl_rifleTx = pygame.image.load("textures/guys/mainpl_rifle.png")
+
 normal_deadTx = pygame.image.load("textures/things/normal_dead.png")
 heavy_is_deadTx = pygame.image.load("textures/things/dead_primo.png")
 shootgun_deadTx = pygame.image.load("textures/things/shootgun_dead.png")
@@ -35,6 +38,7 @@ shootgun_manTx = pygame.image.load("textures/guys/shootgun_man.png")
 
 pistoletTx = pygame.image.load("textures/guns/pistolet.png")
 shootgunTx = pygame.image.load("textures/guns/shootgun.png")
+rifleTx = pygame.image.load("textures/guns/rifle.png")
 
 bulletTx = pygame.image.load("textures/particles/bullet.png")
 
@@ -324,6 +328,8 @@ def fill_screen(root, weather, static=(20, 0, 20), update = 0):
             if not SCREEN:
                 SCREEN = (200, 100, 240)
             SCREEN = ((SCREEN[0] - 1) % 255, (SCREEN[1] + 2) % 255, (SCREEN[2] + 1) % 255)
+        elif weather == "WW":
+            SCREEN = (120, 50, 0)
         elif weather == "MIAMI2":
             if not SCREEN:
                 SCREEN = (0, 0, 0)
@@ -339,6 +345,8 @@ def show_guns(self, guns):
             self.root.blit(pistoletTx, (gun[1] - self.cx, gun[2] - self.cy + self.wavevec))
         elif gun[0] == "shootgun":
             self.root.blit(shootgunTx, (gun[1] - self.cx, gun[2] - self.cy + self.wavevec))
+        elif gun[0] == "rifle":
+            self.root.blit(rifleTx, (gun[1] - self.cx, gun[2] - self.cy + self.wavevec))
 def teleport(self):
     x = self.guys[0].x // self.bsize
     y = self.guys[0].y // self.bsize

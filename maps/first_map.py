@@ -23,7 +23,7 @@ MAP = [
 ]
 SPAWN = [2, 16]
 GUYS = [['gunman', 50, 50], ['gunman', 400, 500], ['gunman', 568, 578], ['gunman', 763, 895], ['gunman', 308, 884], ['primat', 91, 350], ['primat', 88, 273], ['shootgunman', 452, 512], ['shootgunman', 553, 561]]
-GUNS = [['pistolet', 207, 876, 10], ['shootgun', 138, 722, 5], ['shootgun', 192, 651, 5]]
+GUNS = [['shootgun', 138, 722, 5], ['shootgun', 192, 651, 5], ['rifle', 207, 876, 60]]
 EXITS = [[1, 19], [2, 19], [1, 18]]
-WEATHER = 'MIAMI'
+WEATHER = 'WW'
 MUSIC = 'hotline.wav'
